@@ -1,0 +1,33 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}
+Games list
+{% endblock %}
+
+{% block body %}
+<h1>Games list:</h1>
+{% if games %}
+<div>
+    {% for game in games %}
+    {% if game.on_sale %}
+    <div>
+        <p> Title: {{ game.title }}</p>
+          <div>
+                        Genres:
+                        <ul>
+                            {% for genre in game.genres.all %}
+                                <li>{{ genre.title }}</li>
+                            {% endfor %}
+                       </ul>
+                    </div>
+        <p> Price: {{ game.price }}</p>
+        <p><button>Buy</button> </p>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</div>
+{% else %}
+<h1> No games yet</h1>
+{% endif %}
+{% endblock %}
