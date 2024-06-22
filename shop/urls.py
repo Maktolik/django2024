@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.urls import path
 
-from . import views
+from . import views, admin
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('app/', views.games_list, name='games-list'),
+    path('app/<int:game_id>/', views.game_info, name='game-info')
 ]
