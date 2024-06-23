@@ -16,14 +16,8 @@ Including another URLconf
 """
 from django.urls import path
 
-from . import views, admin
+from . import views
 
-app_name = 'shop'
+app_name = 'api'
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('app/', views.games_list, name='games-list'),
-    path('app/<int:game_id>/', views.game_info, name='game-info'),
-    # path('genre/', views.genre, name='genres-list'),
-    path('genre/<int:genre_id>/', views.genre_info, name='genre-info'),
-    path('random/', views.random_game, name='random-game'),
 ]

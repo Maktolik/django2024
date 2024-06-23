@@ -25,6 +25,15 @@ def game_info(request: HttpRequest, game_id: int):
     return render(request, 'shop/game-info.html', context=context)
 
 
+def genre_info(request: HttpRequest, genre_id: int):
+    context = {
+        "genre": get_object_or_404(Genre, pk=genre_id),
+        "games": Game.objects.filter(genres=genre_id),
+    }
+
+    return render(request, 'shop/genre-info.html', context=context)
+
+
 def random_game(request: HttpRequest):
     count = Game.objects.count()
     rand_id = random.randint(1, count)

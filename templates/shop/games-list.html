@@ -16,7 +16,7 @@ Games list
                         Genres:
                         <ul>
                             {% for genre in game.genres.all %}
-                                <li>{{ genre.title }}</li>
+                                <li><a href="{% url 'shop:genre-info' genre.id %}">{{ genre.title }}</a></li>
                             {% endfor %}
                        </ul>
                     </div>
