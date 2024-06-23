@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ game.title }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ game.title }}</h1>
+    {% if game %}
+        <div>
+            <p></p>
+            <div>
+                Genres:
+                <ul>
+                    {% for genre in game.genres.all %}
+                        <li>{{ genre.title }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <p> {{ game.description }}</p>
+            <p> Realised at {{ game.release_date }}</p>
+            {% if game.on_sale %}
+            <p> Price: {{ game.price }}</p>
+            <p>
+                
+                <button>Buy</button>
+                {% endif %}
+            </p>
+        </div>
+    {% else %}
+        <h1> No game with this id yet</h1>
+    {% endif %}
+{% endblock %}

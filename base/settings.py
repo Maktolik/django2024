@@ -26,6 +26,10 @@ SECRET_KEY = 'django-insecure-&2%evo1gasru0c=r58%c@xx42zet2&9g-tu5k-7ww)8!8mo)66
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'localhost',
+    'plugins.jetbrains.com',
+    '127.0.0.1',
+    'download.jetbrains.com',
 ]
 
 
@@ -57,7 +61,7 @@ ROOT_URLCONF = 'base.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
