@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{  genre.title }}
+{% endblock %}
+
+{% block body %}
+    <h2>{{ genre.title }}</h2>
+    <h1>{{ genre.description }}</h1>
+    <h1>Games:</h1>
+{% if genre.games %}
+<div>
+    {% for game in games %}
+    <div>
+        <p><a href={% url "shop:game-info" game.id %}> {{ game.title }}</a></p>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<h1> No games in this genre</h1>
+{% endif %}
+{% endblock %}
