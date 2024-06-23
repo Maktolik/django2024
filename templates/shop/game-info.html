@@ -1,4 +1,4 @@
-{% extends 'shop/base.html' %}
+{% extends 'base.html' %}
 
 {% block title %}
     {{ game.title }}
@@ -19,10 +19,12 @@
             </div>
             <p> {{ game.description }}</p>
             <p> Realised at {{ game.release_date }}</p>
-
+            {% if game.on_sale %}
             <p> Price: {{ game.price }}</p>
             <p>
+                
                 <button>Buy</button>
+                {% endif %}
             </p>
         </div>
     {% else %}

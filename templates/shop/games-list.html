@@ -1,4 +1,4 @@
-{% extends 'shop/base.html' %}
+{% extends 'base.html' %}
 
 {% block title %}
 Games list
@@ -11,7 +11,7 @@ Games list
     {% for game in games %}
     {% if game.on_sale %}
     <div>
-        <p> Title: {{ game.title }}</p>
+        <p> Title: <a href={% url "shop:game-info" game.id %}> {{ game.title }}</a></p>
           <div>
                         Genres:
                         <ul>

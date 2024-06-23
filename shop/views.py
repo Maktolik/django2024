@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpRequest
 from .models import Game, Genre
 
-from django.shortcuts import get_object_or_404
+import random
 
 
 def index(request: HttpRequest):
@@ -23,3 +23,9 @@ def game_info(request: HttpRequest, game_id: int):
     }
 
     return render(request, 'shop/game-info.html', context=context)
+
+
+def random_game(request: HttpRequest):
+    count = Game.objects.count()
+    rand_id = random.randint(1, count)
+    return game_info(request, rand_id)
