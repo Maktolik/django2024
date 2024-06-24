@@ -19,5 +19,13 @@ from django.urls import path
 from . import views
 
 app_name = 'api'
+
 urlpatterns = [
+    path('v1/games/', views.GamesAPIList.as_view(), name='games-list'),
+    path('v1/games/<int:pk>/', views.GamesAPIUpdate.as_view(), name='games-update'),
+    path('v1/gamesdel/<int:pk>/', views.GamesAPIDestroy.as_view(), name='games-destroy'),
+
+
+    path('v1/genres/', views.GenresAPIList.as_view(), name='genres'),
+    path('v1/genresdel/<int:pk>/', views.GenresAPIDestroy.as_view(), name='genres-destroy'),
 ]
